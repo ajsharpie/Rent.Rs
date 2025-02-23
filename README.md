@@ -1,16 +1,7 @@
 # rently
 
-A new Flutter project.
+This project is my first personal project during the Boot.dev courses. 
 
-## Getting Started
+Its a little ambitious, but I am determined - I think it will take longer than the 20-40 hours as I'm working with a few new tools: Dart, flutter, and firebase.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The implementation will be fairly simple, but the whole of the project will be a much larger scale than the bootdev folks likely intended. 
