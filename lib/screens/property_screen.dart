@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:rently/services/firebase_services.dart'; // Adjust the path as necessary
-import 'package:rently/screens/rent_screen.dart'; // Adjust the path as necessary
+import 'package:rently/services/firebase_services.dart';
+import 'package:rently/screens/rent_screen.dart';
 
 class PropertyScreen extends StatefulWidget {
   @override
@@ -18,7 +18,6 @@ class _PropertyScreenState extends State<PropertyScreen> {
   }
 
   Future<void> _fetchProperties() async {
-    // Assuming you have a Firebase service class with a method to get properties
     var firebaseService = FirebaseService();
     var fetchedProperties = await firebaseService.getProperties();
     setState(() {
@@ -31,7 +30,12 @@ class _PropertyScreenState extends State<PropertyScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Property Screen'),
+        title: Text('Properties',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 24,
+              color: Colors.deepPurple[400],
+            )),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -39,7 +43,11 @@ class _PropertyScreenState extends State<PropertyScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             DropdownButton<String>(
-              hint: Text('Select a property'),
+              hint: Text('Select a property',
+                  style: TextStyle(
+                    fontSize: 24,
+                    color: Colors.deepPurple[400],
+                  )),
               value: selectedProperty,
               onChanged: (String? newValue) {
                 setState(() {
@@ -49,7 +57,11 @@ class _PropertyScreenState extends State<PropertyScreen> {
               items: properties.entries.map<DropdownMenuItem<String>>((entry) {
                 return DropdownMenuItem<String>(
                   value: entry.key,
-                  child: Text(entry.key),
+                  child: Text(entry.key,
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.deepPurple[400],
+                      )),
                 );
               }).toList(),
             ),
@@ -60,6 +72,10 @@ class _PropertyScreenState extends State<PropertyScreen> {
                     children: [
                       Text(
                         "${properties[selectedProperty].name} is located at ${properties[selectedProperty].address} and rents for \$${properties[selectedProperty].rent}",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.deepPurple[400],
+                        ),
                       ),
                       SizedBox(height: 20),
                       ElevatedButton(
@@ -73,11 +89,19 @@ class _PropertyScreenState extends State<PropertyScreen> {
                             ),
                           );
                         },
-                        child: Text('Go to Rent Screen'),
+                        child: Text('Go to Rent Screen',
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.deepPurple[400],
+                            )),
                       ),
                     ],
                   )
-                : Text('Please select a property to see the details'),
+                : Text('Please select a property to see the details',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.deepPurple[400],
+                    )),
           ],
         ),
       ),

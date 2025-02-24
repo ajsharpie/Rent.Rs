@@ -11,17 +11,21 @@ class RentScreen extends StatefulWidget {
   });
 
   @override
-  _RentScreenState createState() => _RentScreenState();
+  RentScreenState createState() => RentScreenState();
 }
 
-class _RentScreenState extends State<RentScreen> {
+class RentScreenState extends State<RentScreen> {
   String selectedMonth = 'January';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Rent Details'),
+        title: Text('Rent Details',
+            style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.deepPurple[400])),
       ),
       body: Center(
         child: Padding(
@@ -31,12 +35,15 @@ class _RentScreenState extends State<RentScreen> {
             children: [
               Text(
                 widget.property.name,
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.deepPurple[400]),
               ),
               SizedBox(height: 8),
               Text(
                 'Rental Amount: \$${widget.property.rent.toStringAsFixed(2)}',
-                style: TextStyle(fontSize: 18),
+                style: TextStyle(fontSize: 18, color: Colors.deepPurple[400]),
               ),
               SizedBox(height: 16),
               Flexible(
@@ -47,7 +54,10 @@ class _RentScreenState extends State<RentScreen> {
               SizedBox(height: 16),
               Text(
                 'Total Rent Received for the Year: \$${(widget.property.rent * widget.property.rentRecord.length).toStringAsFixed(2)}',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.deepPurple[400]),
               ),
             ],
           ),
@@ -95,7 +105,10 @@ class _RentScreenState extends State<RentScreen> {
                         ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
-                            child: Text(value),
+                            child: Text(
+                              value,
+                              style: TextStyle(color: Colors.deepPurple),
+                            ),
                           );
                         }).toList(),
                       ),
@@ -148,6 +161,15 @@ class RentTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DataTable(
+      dataTextStyle: TextStyle(
+        fontSize: 16,
+        color: Colors.deepPurpleAccent,
+      ),
+      headingTextStyle: TextStyle(
+        fontSize: 18,
+        color: Colors.deepPurple,
+        fontWeight: FontWeight.bold,
+      ),
       columns: [
         DataColumn(label: Text('Year')),
         DataColumn(label: Text('Month')),
