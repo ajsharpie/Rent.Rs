@@ -9,6 +9,7 @@ class FirebaseService {
       'name': property.name,
       'address': property.address,
       'rent': property.rent,
+      'rentRecord': property.rentRecord,
     });
   }
 
@@ -19,6 +20,7 @@ class FirebaseService {
         doc['name'],
         doc['address'],
         doc['rent'],
+        doc['rentRecord'],
       );
     }).toList();
   }
@@ -31,6 +33,7 @@ class FirebaseService {
       snapshot['name'],
       snapshot['address'],
       snapshot['rent'],
+      snapshot['rentRecord'],
     );
   }
 
@@ -39,6 +42,7 @@ class FirebaseService {
       'name': property.name,
       'address': property.address,
       'rent': property.rent,
+      'rentRecord': property.rentRecord,
     });
   }
 
