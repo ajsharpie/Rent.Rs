@@ -4,8 +4,24 @@ class RentRecord {
   final double rentReceived;
 
   RentRecord({
-    this.year = 0,
-    this.month = '',
-    this.rentReceived = 0.0,
+    required this.year,
+    required this.month,
+    required this.rentReceived,
   });
+
+  Map<String, dynamic> toMap() {
+    return {
+      'year': year,
+      'month': month,
+      'rentReceived': rentReceived,
+    };
+  }
+
+  factory RentRecord.fromMap(Map<String, dynamic> map) {
+    return RentRecord(
+      year: map['year'],
+      month: map['month'],
+      rentReceived: map['rentReceived'],
+    );
+  }
 }

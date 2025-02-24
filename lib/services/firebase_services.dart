@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:rently/models/property.dart';
+import 'package:rently/models/rent.dart';
 
 class FirebaseService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -20,7 +21,13 @@ class FirebaseService {
         doc['name'],
         doc['address'],
         doc['rent'],
-        doc['rentRecord'],
+        doc['rentRecord'].map<RentRecord>((record) {
+          return RentRecord(
+            year: record['year'],
+            month: record['month'],
+            rentReceived: record['rentReceived'],
+          );
+        }).toList(),
       );
     }).toList();
   }
@@ -42,7 +49,13 @@ class FirebaseService {
       'name': property.name,
       'address': property.address,
       'rent': property.rent,
-      'rentRecord': property.rentRecord,
+      'rentRecord': property.rentRecord.map((record) {
+        return {
+          'year': record.year,
+          'month': record.month,
+          'rentReceived': record.rentReceived,
+        };
+      }).toList(),
     });
   }
 

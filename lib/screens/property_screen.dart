@@ -68,10 +68,7 @@ class _PropertyScreenState extends State<PropertyScreen> {
                             context,
                             MaterialPageRoute(
                               builder: (context) => RentScreen(
-                                propertyName: properties[selectedProperty].name,
-                                rentalAmount: properties[selectedProperty].rent,
-                                rentRecords:
-                                    properties[selectedProperty].rentRecord,
+                                property: properties[selectedProperty],
                               ),
                             ),
                           );
